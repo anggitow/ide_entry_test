@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SchoolController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::controller(SchoolController::class)->group(function () {
+    Route::get('/school', 'index')->name('school');
 });
